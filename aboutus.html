@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Neon 3D Rotating Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column; /* Add this for vertical alignment */
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: rgba(10, 60, 140, 1); /* Original darker blue background */
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .carousel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            perspective: 1200px;
+        }
+        .carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 12s infinite linear;
+            cursor: pointer;
+            transition: transform 0.8s ease;
+        }
+        .card {
+            position: absolute;
+            width: 150px;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 1em;
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            transition: transform 0.5s;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2),
+                        0px 0px 40px rgba(255, 255, 255, 0.3);
+        }
+        .card:nth-child(1) {
+            background: linear-gradient(145deg, rgba(255, 95, 109, 1), rgba(255, 195, 113, 1));
+            transform: rotateY(0deg) translateZ(250px);
+        }
+        .card:nth-child(2) {
+            background: linear-gradient(145deg, rgba(95, 156, 252, 1), rgba(0, 198, 255, 1));
+            transform: rotateY(120deg) translateZ(250px);
+        }
+        .card:nth-child(3) {
+            background: linear-gradient(145deg, rgba(106, 130, 251, 1), rgba(252, 92, 125, 1));
+            transform: rotateY(240deg) translateZ(250px);
+        }
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+        .card:hover {
+            box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.6),
+                        0px 0px 0px rgba(255, 255, 255, 0.8);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+        .placeholder {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+        .team-title {
+            margin-top: 20px;
+            font-size: 3em; /* Increased size for more prominence */
+            font-weight: bold;
+            color: red; /* Bright red color */
+            font-family: 'Arial', sans-serif; /* You can change the font-family */
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div id="carousel" class="carousel">
+            <a href="anshuiya.html" class="card">
+                <img src="anshuiyaphoto.jpeg" alt="Teammate 1">
+                <div class="placeholder">ADD PICTURE HERE</div>
+            </a>
+            <a href="rhythm.html" class="card">
+                <img src="rhythmphoto.jpeg" alt="Teammate 2">
+                <div class="placeholder">ADD PICTURE HERE</div>
+            </a>
+            <a href="shyam.html" class="card">
+                <img src="shyamphoto.jpeg" alt="Teammate 3">
+                <div class="placeholder">ADD PICTURE HERE</div>
+            </a>
+        </div>
+    </div>
+    <div class="team-title">MEET OUR TEAM</div> <!-- Title here -->
+    <script>
+        const carousel = document.getElementById('carousel');
+        let angle = 0;
+        let autoRotate = true;
+
+        setInterval(() => {
+            if (autoRotate) {
+                angle += 1;
+                carousel.style.transform = `rotateY(${angle}deg)`;
+            }
+        }, 30);
+
+        carousel.addEventListener('mouseenter', () => {
+            autoRotate = false;
+            carousel.style.animationPlayState = 'paused';
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            autoRotate = true;
+            carousel.style.animationPlayState = 'running';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS Isometric Social Media Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Oswald', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #434750;
+        }
+        ul {
+            position: relative;
+            transform: skewY(-15deg);
+        }
+        ul li {
+            position: relative;
+            list-style: none;
+            width: 120px;
+            background: #3e3f46;
+            padding: 15px;
+            transition: transform 0.5s;
+            z-index: calc(1 * var(--i));
+        }
+        ul li:hover {
+            transform: translateX(-50px);
+            background: var(--clr);
+        }
+        ul li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -40px;
+            width: 40px;
+            height: 100%;
+            background: #3e3f46;
+            filter: brightness(0.7);
+            transform-origin: right;
+            transform: skewY(45deg);
+            transition: 0.5s;
+        }
+        ul li:hover::before {
+            background: var(--clr);
+            filter: brightness(0.7);
+        }
+        ul li::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0px;
+            width: 100%;
+            height: 40px;
+            background: #3e3f46;
+            filter: brightness(0.9);
+            transform-origin: bottom;
+            transform: skewX(45deg);
+            transition: 0.5s;
+        }
+        ul li:hover::after {
+            background: var(--clr);
+            filter: brightness(0.9);
+        }
+        ul li a {
+            text-decoration: none;
+            color: #999;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.5s;
+        }
+        ul li:hover a {
+            color: #fff;
+        }
+        ul li:last-child::after {
+            box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.25);
+        }
+        ul li span {
+            position: absolute;
+            top: 0;
+            left: -40px;
+            width: 40px;
+            height: 100%;
+            transform-origin: right;
+            transform: skewY(45deg);
+            transition: 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.5;
+            font-size: 1.25em;
+        }
+        ul li:hover span {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li style="--i:4;--clr:#1877f2"><a href="#"><span><i class="fab fa-facebook"></i></span>Facebook</a></li>
+        <li style="--i:3;--clr:#25d366"><a href="https://wa.me/+917640841355"><span><i class="fab fa-whatsapp"></i></span>WhatsApp</a></li>
+        <li style="--i:2;--clr:#c32aa3"><a href="https://www.instagram.com/anshuiyakarki/"><span><i class="fab fa-instagram"></i></span>Instagram</a></li>
+        <li style="--i:1;--clr:#0077b5"><a href="https://www.linkedin.com/in/anshuiya-karki-4256a3264/"><span><i class="fab fa-linkedin"></i></span>LinkedIn</a></li>
+    </ul>
+</body>
+</html>
